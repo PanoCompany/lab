@@ -5,6 +5,8 @@ import assignment.enums.Role;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -13,14 +15,15 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
-    String fullName;
-    String email;
-    String phoneNumber;
+    private String fullName;
+    private String email;
+    private String phoneNumber;
     @Enumerated(EnumType.STRING)
     private Role role;
     @Enumerated(EnumType.STRING)
     private Gender gender;
-
-
-    String password;
+    private String address;
+    private String password;
+    private Date createAt;
+    private Date updateAt;
 }
