@@ -5,7 +5,9 @@ import assignment.enums.Role;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -16,14 +18,21 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     private String fullName;
+    @Column(unique = true, nullable = false)
     private String email;
     private String phoneNumber;
-    @Enumerated(EnumType.STRING)
-    private Role role;
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
+    private String role;
+    private String gender;
     private String address;
     private String password;
     private Date createAt;
     private Date updateAt;
+
+    public List<String> getRoleList() {
+        if (this.role.toString().length() > 0) {
+            return Arrays.asList(this.role.toString().split(","));
+        }
+
+        return new ArrayList<String>();
+    }
 }

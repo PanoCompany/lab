@@ -3,8 +3,7 @@ package assignment.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.util.List;
+import java.util.Date;
 
 @Entity
 @Table(name = "course")
@@ -18,6 +17,7 @@ public class Course {
     private double price;
     private Date createAt;
     private Date updateAt;
+    private String image;
 
     @OneToOne
     private User creator;

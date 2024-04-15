@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/main}">
+<body>
+
+<div>
+    <section layout:fragment="content">
+        <h1 class="font-bold text-xl mb-8">Sửa người dùng</h1>
+
+        <form class="" method="post" th:action="@{/manager/user/update}" th:object="${user}">
+            <input style="display: none" th:field="*{id}">
+            <div class="grid grid-cols-2 w-full gap-12">
+                <div>
+                    <div class="mb-5">
+                        <label for="fullName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Họ và
+                            tên</label>
+                        <input th:field="*{fullName}" type="text" id="fullName" placeholder="Nhập họ tên..."
+                               class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                               required/>
+                    </div>
+                    <div class="mb-5">
+                        <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vai
+                            trò</label>
+                        <select th:field="*{role}" id="role"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected value="STUDENT">Sinh viên</option>
+                            <option value="TEACHER">Giảng viên</option>
+                            <option value="ADMIN">Admin</option>
+                        </select>
+                    </div>
+                    <div class="mb-5">
+                        <label for="gender" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Giới
+                            tính</label>
+                        <select th:field="*{gender}" id="gender"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected value="">Chọn giới tính</option>
+                            <option value="male">Nam</option>
+                            <option value="female">Nữ</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div class="mb-5">
+                        <label for="phoneNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Điện
+                            thoại</label>
+                        <input th:field="*{phoneNumber}" type="text" id="phoneNumber" placeholder="Nhập số điện thoại..."
+                               class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                               required/>
+                    </div>
+                    <div class="mb-5">
+                        <label for="address"
+                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Địa
+                            chỉ</label>
+                        <textarea th:field="*{address}" type="text" id="address" placeholder="Nhập địa chỉ..."
+                               class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                               required></textarea>
+                    </div>
+                </div>
+            </div>
+            <button type="submit"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Cập nhật
+            </button>
+        </form>
+    </section>
+
+    <script>
+        function updateValue(e) {
+            e.preventDefault();
+        }
+    </script>
+</div>
+
+</body>
+</html>
