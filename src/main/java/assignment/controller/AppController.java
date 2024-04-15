@@ -12,6 +12,6 @@ public class AppController {
         if (principal == null){
             return "login";
         }
-        return "home";
+        return "redirect:/course";
     }
 }
